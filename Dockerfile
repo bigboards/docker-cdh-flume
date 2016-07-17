@@ -1,11 +1,14 @@
 # Pull base image.
-#FROM bigboards/cdh-base-__arch__
-FROM bigboards/cdh-base-x86_64
+FROM bigboards/cdh-base-__arch__
 
 MAINTAINER bigboards
 USER root 
 
-RUN apt-get update && apt-get install -y flume-ng flume-ng-agent 
+RUN apt-get update \
+    && apt-get install -y flume-ng flume-ng-agent \
+    && apt-get clean \
+    && apt-get autoclean \
+    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* /var/cache/apt/archives/*
 
 ADD docker_files/run.sh /apps/run.sh
 RUN chmod a+x /apps/run.sh
