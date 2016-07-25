@@ -20,8 +20,8 @@ RUN mkdir -p /etc/hadoop/conf.bb && \
 VOLUME /etc/hadoop/conf.bb
 
 RUN mkdir -p /etc/flume-ng/conf.bb && \
-    update-alternatives --install /etc/flume-ng/conf flume-conf /etc/flume-ng/conf.bb 1 && \
-    update-alternatives --set flume-conf /etc/flume-ng/conf.bb
+    update-alternatives --install /etc/flume-ng/conf flume-ng-conf /etc/flume-ng/conf.bb 1 && \
+    update-alternatives --set flume-ng-conf /etc/flume-ng/conf.bb
 VOLUME /etc/flume-ng/conf.bb
 
 # external ports
